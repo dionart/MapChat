@@ -1,0 +1,167 @@
+@import '../../mixin.scss';
+
+#background{
+    
+    scroll-snap-align: center;
+    height: 100vh;
+    background: url('../../images/background.png') no-repeat 0px bottom;
+
+    .map{
+        padding-top: 6px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        
+        .leaflet-container{
+            border-radius: 6px;
+            width:700px;
+            height: 400px;
+        }
+    }
+    
+    .neighborhoods{
+        flex-wrap: wrap;
+        max-width: 650px;
+        display: flex;
+        justify-content: center;
+        .botao-neighborhoods{
+            background-color: #2C5A92 !important;
+            border-color: #2C5A92;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            
+        }
+    }
+
+    .search{
+        align-items: center;
+        justify-content: center;
+        padding-top: 250px;
+        width:100% !important;
+        text-align: center;
+     
+        &.active{
+            padding-top: 50px;
+        }
+        
+        a{   
+             z-index: 2;
+             font-weight: 600;
+             color:#777 !important;
+             font-size: 45px;
+             letter-spacing: 1.3px;
+         
+        }
+     
+        a:first-of-type{
+            margin-right: -15px;
+        }
+        a:last-of-type{
+            margin-left: -17px;
+        }
+     
+        img{
+            z-index: 1;
+            margin-top:-50px;
+            width: 70px;
+            padding-bottom: 30px;
+        }
+     
+        .d-flex{
+             align-items: center;
+             justify-content: center;
+             
+             #ir{
+                 margin-top: -15px;
+                 height: 47px;
+                 width:100%;
+                 background-color: #2C5A92;
+                 border-color: #2C5A92;
+             }
+         
+             .form-search{
+                 width: 500px;
+             }
+         }
+         
+         button{
+             outline: none;
+             border: 0;
+             background-color:transparent ;
+         
+             h1{
+                 padding-bottom: 12px;
+                 color: #777;
+                 font-size: 18px;
+             }
+         }
+         
+     }
+}
+
+
+.button-hide{
+    padding-bottom: 12px;
+    display: flex;
+    justify-content: center;
+    button{
+        border: 0;
+        background-color:transparent ;
+            h1{
+                padding-top: 7px;
+                color: #777;
+                font-size: 18px;
+            }
+    }
+}
+
+.logo{
+    width:35px;
+    margin-right: 5px;
+}
+
+.navbar {
+    a{
+        font-weight: 400;
+        font-size: 22px;
+        color: #2C5A92 !important;
+    }
+    .navbar-nav{
+        a{  
+            letter-spacing: 1.3px;
+            color: #2C5A92 !important;
+            font-size: 18px;
+            
+        }
+    }
+}
+
+.login-button{
+    border:0;
+    background: #f8f9fa;
+
+    div{
+        padding-right: 10px;
+        .login-icon{
+            margin-top: 10px;
+            
+        }
+    }
+}
+
+.title{
+    text-align: center;
+    padding-top: 10px;
+}
+
+.form-container{
+    padding:22px;
+}
+
+#botao{
+    width:100%;
+    background-color: #2C5A92;
+    border-color: #2C5A92;
+}
+
+

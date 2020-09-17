@@ -1,0 +1,55 @@
+@import '../../mixin.scss';
+
+#second-page{
+    scroll-snap-align: center;
+    height: 100vh;
+    background: url('../../images/background-2.jpg') no-repeat 0px bottom;
+    div{
+        
+        display: flex;
+        flex-direction: row;
+        
+        
+        .description-container{
+            width: 50%;
+            z-index: 2;
+            padding-top: 35px;
+            flex-direction: column;
+            a{  
+                text-align: center;
+                font-size: 65px;
+                color:#2C5A92;
+                font-weight: 600;
+            }
+            p{
+                justify-self: flex-end;
+                font-size: 28px;
+                color:#777;
+                font-weight: 600;
+            }
+            .satelite{
+                transform: rotate(-15deg);
+                padding:150px 0;
+                width: 150px;
+                align-self: center;
+
+            }
+            .satelite2{
+                width: 150px;
+            }
+            
+        }
+
+        
+        .image-container{
+            margin-left: 70px;
+            z-index: 1;
+            padding:170px 0;
+            img{
+               
+            }
+            
+        }
+    }
+}
+

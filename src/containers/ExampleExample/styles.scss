@@ -1,0 +1,14 @@
+.main{
+
+    &::-webkit-scrollbar {
+        width: 0;
+        }
+    
+      &::-webkit-scrollbar-thumb {
+        background: var(--title-color);
+        }
+    height:100vh;
+    overflow-y: scroll; 
+    scroll-behavior: smooth; 
+    scroll-snap-type: y mandatory;
+}
