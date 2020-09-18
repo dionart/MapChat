@@ -1,0 +1,45 @@
+@import '../../mixin.scss';
+
+
+.image-container{
+    padding-top:20px;
+    display: flex;
+    justify-content:center;
+    img{
+        width:350px;
+    }
+}
+
+.text-container{
+    text-align: center;
+    h4{
+        color: $blue_project;
+        font-weight: 600;
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+    p{
+        font-size: 18px;
+    }
+    .row-container{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.button-container{
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    .button-ok{
+        align-self: center;
+        background-color: $blue_project !important;
+        border-color: $blue_project !important;
+        outline: none;
+        width: 60%;
+    }
+}
+
+
+
+

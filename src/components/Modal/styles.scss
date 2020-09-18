@@ -1,0 +1,32 @@
+@import '../../mixin.scss';
+
+
+.logo-container{
+    padding-top: 14px;
+    display: flex;
+    justify-content: center;
+    a{  
+        padding-top: 10px;
+        font-weight: 600;
+        color:$grey !important;
+        font-size: 45px;
+        letter-spacing: 1.3px;
+        font-size: 30px;
+    }
+    img{
+        width: 50px;
+    }
+}
+
+
+.form-container{
+    padding:22px;
+
+    #botao{
+        width:100%;
+        background-color: $blue_project;
+        border-color: $blue_project;
+    }
+    
+
+}

@@ -1,0 +1,120 @@
+@import '../../mixin.scss';
+
+.modal-container{
+    .row-container{
+        margin:0 !important;
+        
+        .button-message{
+            background-color: $blue_project !important;
+            border-color: $blue_project !important;
+            outline: none;
+        }
+
+        .input-modal{
+            width: 55%;
+            .text-area{
+                outline: none !important; 
+            }
+            .text-modal{
+                padding-top: 30px;
+                padding-bottom: 10px;
+                display:flex;
+                justify-content: center;
+                text-align: center;
+                h4{
+                    font-weight: 600;
+                    font-size: 28px;
+                    color: $blue_project;
+                    
+                }
+            }
+
+            .description-modal{
+                padding-left: 15px;
+            }
+            
+            .send-container{
+                flex-direction: row;
+                display: flex;
+                justify-content: center;
+                .send-button{
+                    background-color: $blue_project;
+                    border-color: $blue_project;
+                    outline: none;
+                    width: 50%;
+                }
+                .goback-button{
+                    margin-right: 75px;
+                    background-color: $white;
+                    color: $blue_project;
+                    border-color: $blue_project;
+                    outline: none;
+                    width: 15%;
+                }
+            }
+        
+        }
+        
+        .image-modal{
+            padding: 25px;
+            background-color: $blue_project;
+            width:45%;
+            img{
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+            
+        }
+    }
+}
+
+@media screen and (max-width: 1188px) {
+    .image-modal{
+        img{
+            padding-top: 50px !important;
+        }
+    }
+
+    .send-container{
+        margin-bottom: 25px !important;
+    
+        .goback-button{
+            width: 18% !important;
+        }
+    
+    }
+}
+
+@media screen and (max-width: 954px) {
+    .image-modal{
+        img{
+            padding-top: 100px !important;
+        }
+    }
+    .send-container{
+        padding-right:15px !important;
+        padding-left:15px !important;
+        .goback-button{
+            width: 33% !important;
+        }
+    
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .image-modal{
+        img{
+            padding-top: 100px !important;
+        }
+    }
+    .send-container{
+        padding-right:15px !important;
+        padding-left:15px !important;
+        .goback-button{
+            margin-right: 35px !important;
+            
+            width: 50% !important;
+        }
+    
+    }
+}

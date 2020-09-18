@@ -1,0 +1,47 @@
+@import '../../mixin.scss';
+
+.header-content{
+    scroll-snap-align: start;
+    .navbar {
+        a{
+            font-weight: 400;
+            font-size: 22px;
+            color: $blue_project !important;
+        }
+        .navbar-nav{
+            a{  
+                letter-spacing: 1.3px;
+                color: $blue_project !important;
+                font-size: 18px;
+                
+            }
+        }
+    }
+
+    .login-button{
+        border:0;
+        background: $background;
+
+        div{
+            padding-right: 10px;
+            .login-icon{
+                margin-top: 10px;
+                
+            }
+        }
+    }
+
+
+    .title{
+        text-align: center;
+        padding-top: 10px;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .header-content{
+        .navbar-brand{
+            font-size: 24px !important;
+        }
+    }
+}

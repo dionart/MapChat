@@ -3,15 +3,12 @@ import React, { useState, useEffect } from "react";
 import './styles.scss';
 import { Map, TileLayer, Marker } from 'react-leaflet';
 import logo from '../../images/logo.png';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import Modal from 'react-bootstrap/Modal';
 import dataJSON from '../../data/neighborhoods.json';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import SendOutlinedIcon from '@material-ui/icons/SendOutlined';
+import ModalMessage from '../../components/ModalMessage';
+import { useSnackbar } from 'notistack';
+import SearchIcon from '@material-ui/icons/Search';
 
 interface Neighborhoods {
     zone: number;
@@ -24,15 +21,16 @@ interface Neighborhood {
     location: [number, number];
 }
   
-
 const SearchPage: React.FC = () => {
-    const [flag,setFlag] = useState(false);
+    const [ModalChoice, setModalChoice] = useState(false);
     const [initialPosition, setInitialPosition] = useState<[number,number]>([0,0]);
     const [showMap, setShowMap] = useState(false);
     const [neighborhoods, setNeighborhoods] = useState<Neighborhood[]>([]);
     const [zone, setZone] = useState(0);
+    const [neighborhoodId, setNeighborhoodId] = useState(0);
     const [showNeighborhood, setShowNeighborhoods] = useState(false);
-  
+    const [choice, setChoice] = useState<string>('');
+    const { enqueueSnackbar } = useSnackbar();
     const data = dataJSON.neighborhoods;
 
     const searchZone = () => {
@@ -58,33 +56,21 @@ const SearchPage: React.FC = () => {
         });
     }, []);
 
+    const handleModalChoice = (neighborhood:string) =>{
+        setModalChoice(true);
+        setChoice(neighborhood);
+    }
+
+    const handleClose = () =>{setModalChoice(false)}
+
     const handleSelect = () =>{
+        setChoice('');
         setShowNeighborhoods(true);
         setShowMap(true);
     }
 
     return (
         <div id = "background">
-            <Navbar bg="light" expand="lg">
-                
-                <Navbar.Brand href="#home">Home</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="mr-auto">
-                    <Nav.Link href="#home">Sobre</Nav.Link>
-                </Nav>
-                <Nav>
-                    <button className="login-button">
-                        <div className='row'>
-                            <Nav.Link onClick = {()=> setFlag(true)} href="#deets">Entrar</Nav.Link>
-                            <ExitToAppIcon color = "primary" className="login-icon"/>
-                        </div>
-                    </button> 
-                </Nav>
-                </Navbar.Collapse>
-        
-            </Navbar>
-
             <div className={showMap ? "search active" : "search"}>
                 <a>Map</a>
                     <img className = "logo" src = {logo}/>
@@ -100,7 +86,7 @@ const SearchPage: React.FC = () => {
                                         onChange={(e: any) => {setZone(Number(e.target.value));handleSelect()}}
                                     >
                                         
-                                        <option value={0} > Selecione um bairro e pressione o botão ao lado</option>
+                                        <option value={0} > Selecione um bairro das zonas abaixo</option>
                                         {
                                             data.map((item: Neighborhoods) => (
                                         
@@ -123,13 +109,13 @@ const SearchPage: React.FC = () => {
 
                         <div className="ml-3">
                             <Button 
-                                onClick={()=>{console.log('oi')}}
+                                style={{boxShadow:"none"}}
                                 id = "ir"
                                 className="btn-lg pb-4" 
                                 variant="primary" 
                                 type="submit"
                             >
-                                <SendOutlinedIcon style={{ fontSize: 28 }}/>
+                                <SearchIcon style={{ fontSize: 28 }}/>
                             </Button>
                         </div> 
                     
@@ -176,14 +162,15 @@ const SearchPage: React.FC = () => {
                 </div>
             }
 
-           
-
             {showNeighborhood &&
                 <div style={{display:'flex', justifyContent:'center'}}>  
                     <div className = "neighborhoods">
                         {!!neighborhoods.length &&
                             neighborhoods.map((neighborhood: Neighborhood) => (
-                                <Button className="botao-neighborhoods">
+                                <Button 
+                                    onClick={()=>{handleModalChoice(neighborhood.name);setNeighborhoodId(neighborhood.id)}}
+                                    className="botao-neighborhoods"
+                                >
                                     {neighborhood.name}
                                 </Button>
                             ))
@@ -191,42 +178,8 @@ const SearchPage: React.FC = () => {
                     </div>
                 </div>
             }
-            
-            <Modal
-                size="sm"
-                show = {flag}
-                onHide = {() => setFlag(false)}
-            >
-                
-                
-                <Modal.Title className = "title">Login</Modal.Title>
-                
-                <div className='form-container'>
-                    <Form>
-                        <Form.Group controlId="formBasicEmail">
-                            <Form.Control type="email" placeholder="Email" id="inputPassword2" />
-                            <Form.Text className="text-muted">
-                            We'll never share your email with anyone else.
-                            </Form.Text>
-                        </Form.Group>
-
-                        <Form.Group controlId="formBasicPassword">
-
-                            <Form.Control type="password" placeholder="Password" />
-                        </Form.Group>
-                        
-                        
-                        <div className = "centro" >
-                            <Button id="botao" className="btn-sl" variant="primary" type="submit">
-                                Entrar
-                            </Button>
-                        </div>
-                        
-                    </Form>
-                </div>
-                
-            </Modal>
-            
+        
+            <ModalMessage zone={zone} id={neighborhoodId} name={choice} value={ModalChoice} handleClose={handleClose}/>
         </div>
         
     );

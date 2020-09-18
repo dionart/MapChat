@@ -5,10 +5,8 @@
     height: 100vh;
     background: url('../../images/background-2.jpg') no-repeat 0px bottom;
     div{
-        
         display: flex;
         flex-direction: row;
-        
         
         .description-container{
             width: 50%;
@@ -18,7 +16,7 @@
             a{  
                 text-align: center;
                 font-size: 65px;
-                color:#2C5A92;
+                color:$blue_project;
                 font-weight: 600;
             }
             p{
@@ -39,14 +37,12 @@
             }
             
         }
-
-        
         .image-container{
             margin-left: 70px;
             z-index: 1;
             padding:170px 0;
             img{
-               
+               width: 100%;
             }
             
         }

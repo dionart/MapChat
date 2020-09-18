@@ -3,12 +3,13 @@ import React from 'react';
 import './styles.scss';
 import About from '../../components/About';
 import SearchPage from '../../components/Search Page';
-import Modal from '../../components/Modal';
+import Navbar from '../../components/Navbar';
 
 const ExampleExample: React.FC = () => {
   
   return( 
     <div className="main">
+      <Navbar/>
       <SearchPage />
       <About/>
     </div>

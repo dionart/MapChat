@@ -14,6 +14,7 @@
     "jquery": "^3.5.1",
     "leaflet": "^1.7.1",
     "node-sass": "^4.12.0",
+    "notistack": "^1.0.0",
     "react": "^16.13.1",
     "react-bootstrap": "^1.3.0",
     "react-dom": "^16.13.1",

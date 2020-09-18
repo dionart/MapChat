@@ -1,10 +1,8 @@
 @import '../../mixin.scss';
 
 #background{
-    
-    scroll-snap-align: center;
     height: 100vh;
-    background: url('../../images/background.png') no-repeat 0px bottom;
+    background: url('../../images/background.jpg') no-repeat 0px bottom;
 
     .map{
         padding-top: 6px;
@@ -25,18 +23,17 @@
         display: flex;
         justify-content: center;
         .botao-neighborhoods{
-            background-color: #2C5A92 !important;
-            border-color: #2C5A92;
+            background-color: $blue_project !important;
+            border-color: $blue_project;
             margin-right: 10px;
             margin-bottom: 10px;
-            
         }
     }
 
     .search{
         align-items: center;
         justify-content: center;
-        padding-top: 250px;
+        padding-top: 270px;
         width:100% !important;
         text-align: center;
      
@@ -47,7 +44,7 @@
         a{   
              z-index: 2;
              font-weight: 600;
-             color:#777 !important;
+             color: $grey !important;
              font-size: 45px;
              letter-spacing: 1.3px;
          
@@ -68,100 +65,239 @@
         }
      
         .d-flex{
-             align-items: center;
-             justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
              
-             #ir{
-                 margin-top: -15px;
-                 height: 47px;
-                 width:100%;
-                 background-color: #2C5A92;
-                 border-color: #2C5A92;
-             }
+            #ir{
+                margin-top: -15px;
+                height: 47px;
+                width:100%;
+                background-color: $blue_project;
+                border-color: $blue_project;
+            }
          
-             .form-search{
-                 width: 500px;
-             }
-         }
+            .form-search{
+                width: 500px;
+            }
+        }
          
-         button{
-             outline: none;
-             border: 0;
-             background-color:transparent ;
-         
-             h1{
-                 padding-bottom: 12px;
-                 color: #777;
-                 font-size: 18px;
-             }
-         }
-         
-     }
-}
-
-
-.button-hide{
-    padding-bottom: 12px;
-    display: flex;
-    justify-content: center;
-    button{
-        border: 0;
-        background-color:transparent ;
+        button{
+            outline: none;
+            border: 0;
+            background-color:transparent ;
+        
             h1{
-                padding-top: 7px;
-                color: #777;
+                padding-bottom: 12px;
+                color: $grey;
                 font-size: 18px;
             }
+        }
+         
+     }
+     .button-hide{
+        padding-bottom: 12px;
+        display: flex;
+        justify-content: center;
+        button{
+            outline: none;
+            border: 0;
+            background-color:transparent ;
+                h1{
+                    padding-top: 7px;
+                    color: $grey;
+                    font-size: 18px;
+                }
+        }
+    }
+
+    .logo{
+        width:35px;
+        margin-right: 5px;
     }
 }
 
-.logo{
-    width:35px;
-    margin-right: 5px;
+@media screen and (max-width: 1024px) {
+    #background{
+        background: url('../../images/background.jpg') repeat-y 0px bottom !important;
+    }
+    
 }
 
-.navbar {
-    a{
-        font-weight: 400;
-        font-size: 22px;
-        color: #2C5A92 !important;
+@media screen and (max-width: 697px) {
+    
+    .leaflet-container{
+        width:600px !important;
+        height:350px !important;
     }
-    .navbar-nav{
-        a{  
-            letter-spacing: 1.3px;
-            color: #2C5A92 !important;
+    
+}
+
+@media screen and (max-width: 602px) {
+    .form-search{
+        width: 350px !important;
+        .form-control{
             font-size: 18px;
-            
+        }
+    }
+    .leaflet-container{
+        width:500px !important;
+        height:330px !important;
+    }
+}
+
+@media screen and (max-width: 492px) {
+    a{   
+        font-size: 35px !important;
+    }
+    .form-search{
+        width: 350px !important;
+        .form-control{
+            font-size: 18px;
+        }
+    }
+    .leaflet-container{
+        width:420px !important;
+        height:270px !important;
+    }
+}
+
+@media screen and (max-width: 433px) {
+    a{   
+        font-size: 35px !important;
+    }
+    .form-search{
+        width: 250px !important;
+        .form-control{
+            font-size: 14px;
+        }
+    }
+    .leaflet-container{
+        width:350px !important;
+        height:220px !important;
+    }
+}
+
+@media screen and (max-width: 412px) {
+    .search{
+        padding-top: 90px !important;
+    }
+
+    a{   
+        font-size: 35px !important;
+    }
+    .form-search{
+        width: 250px !important;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .search{
+        padding-top: 40px !important;
+        a{
+            font-size: 30px !important;
+        }
+        img{
+            width: 45px !important;
+        }
+    }
+    a{   
+        font-size: 35px !important;
+    }
+    .form-search{
+        width: 250px !important;
+    }
+    .leaflet-container{
+        width:330px !important;
+        height:190px !important;
+    }
+    .neighborhoods{
+        width: 300px !important;
+        height:200px !important;
+        max-width: 100% !important;
+        .botao-neighborhoods{
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+            width:140px !important;
+            height:30px !important;
         }
     }
 }
 
-.login-button{
-    border:0;
-    background: #f8f9fa;
 
-    div{
-        padding-right: 10px;
-        .login-icon{
-            margin-top: 10px;
-            
+@media screen and (max-width: 362px) {
+    .search{
+        padding-top: 40px !important;
+        a{
+            font-size: 30px !important;
+        }
+        img{
+            width: 45px !important;
+        }
+    }
+    a{   
+        font-size: 35px !important;
+    }
+    .form-search{
+        width: 250px !important;
+    }
+    .leaflet-container{
+        width:330px !important;
+        height:190px !important;
+    }
+    .neighborhoods{
+        width: 300px !important;
+        height:200px !important;
+        max-width: 100% !important;
+        .botao-neighborhoods{
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+            width:140px !important;
+            height:30px !important;
         }
     }
 }
 
-.title{
-    text-align: center;
-    padding-top: 10px;
+@media screen and (max-width: 323px) {
+    .search{
+        padding-top: 40px !important;
+        a{
+            font-size: 30px !important;
+        }
+        img{
+            width: 45px !important;
+        }
+    }
+    a{   
+        font-size: 30px !important;
+    }
+    .form-search{
+        width: 190px !important;
+    }
+    .leaflet-container{
+        width:300px !important;
+        height:190px !important;
+    }
+    .neighborhoods{
+        width: 300px !important;
+        height:200px !important;
+        max-width: 100% !important;
+        .botao-neighborhoods{
+            padding:0 !important;
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+            width:110px !important;
+            height:25px !important;
+        }
+        .btn{
+            padding:0 !important;
+    
+        }
+    }
+
 }
 
-.form-container{
-    padding:22px;
-}
 
-#botao{
-    width:100%;
-    background-color: #2C5A92;
-    border-color: #2C5A92;
-}
+
 
 
