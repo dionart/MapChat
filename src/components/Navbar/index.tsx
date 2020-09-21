@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+//importações
 import './styles.scss';
 import Navbar from 'react-bootstrap/Navbar';
 import { useSnackbar } from 'notistack';
@@ -7,10 +7,10 @@ import Nav from 'react-bootstrap/Nav';
 import ModalLogin from '../../components/Modal';
 import { useSelector, RootStateOrAny, useDispatch } from 'react-redux';
 import { removeUser } from '../../store/ducks/user/actions';
-
 import Person from '@material-ui/icons/Person';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
+//interface
 interface User {
     id: string;
     token: string;
@@ -20,23 +20,26 @@ interface User {
 }
   
 const Header: React.FC = () => {
+    //declarações de constatntes
     const { enqueueSnackbar } = useSnackbar();
     const dispatch = useDispatch();
     const user: User = useSelector((state: RootStateOrAny) => state.user.user);
     const [flag,setFlag] = useState(false);
 
+    //handleclose para modal
     const handleClose = () =>{
         setFlag(false);
     }
 
+    //logica para scrollar para página após clique no header
     const scrollToNextPage = () => {
         document.querySelector('#second-page')?.scrollIntoView({behavior:'smooth'})
     };
-
     const scrollToFooter = () => {
         document.querySelector('.footer')?.scrollIntoView({behavior:'smooth'})
     };
 
+    //dispatch para deslogar usuário
     const LogOut = () =>{
         dispatch(removeUser());
     }

@@ -6,7 +6,7 @@ import SearchPage from '../../components/Search Page';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 
-const ExampleExample: React.FC = () => {
+const Main: React.FC = () => {
   
   return( 
     <div className="main">
@@ -19,4 +19,4 @@ const ExampleExample: React.FC = () => {
     );
 }
 
-export default ExampleExample;
+export default Main;

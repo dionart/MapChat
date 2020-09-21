@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+//importações
 import './styles.scss';
 import world from '../../images/world.svg'
 import satelite from '../../images/satelite.png';

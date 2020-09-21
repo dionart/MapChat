@@ -1,3 +1,4 @@
+//importações
 import React, {useState} from "react";
 import {environment} from '../../environment/environment';
 import logo from '../../images/logo.png'
@@ -10,19 +11,23 @@ import { checkAuth } from '../../services/validation';
 import { useDispatch } from 'react-redux';
 import { updateUser } from '../../store/ducks/user/actions';
 
+//interface
 interface ModalProps {
   value: boolean,
   handleClose(): any;
 };
 
 const ModalLogin: React.FC<ModalProps> = (props) => {
+    //declarações de constantes
     const { enqueueSnackbar } = useSnackbar();
     const dispatch = useDispatch();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    //função para login de usuário fixo
     const Login = () =>{
         if(email == 'arthur.dionizio@lavid.ufpb.br' && password == 'autonodev'){
+            //cria objeto de usuário
             const user ={
                 id:'1',
                 token:'LoggedIn',
@@ -31,10 +36,11 @@ const ModalLogin: React.FC<ModalProps> = (props) => {
 
             }
             
+            //checa se email e senha são validos
             const ValidEmail = checkAuth('email', email);
             const ValidPassword = checkAuth('password', password);
-
             if(ValidEmail && ValidPassword){
+                //seta token e usuário para permanecer logado após sair da página
                 localStorage.setItem(environment.REACT_APP_LOCAL_STORAGE_USER, 'loggedIn'); 
                 localStorage.setItem("loggedUser", JSON.stringify({ user }));
                 dispatch(updateUser({ user }));

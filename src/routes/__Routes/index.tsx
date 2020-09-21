@@ -1,11 +1,11 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import ExampleExample from '../../containers/ExampleExample';
+import Main from '../../containers/Main Page';
 
 export default function Routes() {
   return (
     <Switch>
-      <Route exact path="/" component={ExampleExample} />
+      <Route exact path="/" component={Main} />
       <Redirect from="*" to="/" />
     </Switch>
   );

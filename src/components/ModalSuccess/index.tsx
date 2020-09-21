@@ -1,5 +1,5 @@
 import React from 'react';
-
+//importações
 import './styles.scss';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
@@ -7,6 +7,7 @@ import Row from 'react-bootstrap/Row';
 import sending from '../../images/sending.svg';
 import { useSelector, RootStateOrAny } from 'react-redux';
 
+//interfaces
 interface ModalProps {
     zone:number,
     id:number,
@@ -24,7 +25,8 @@ interface User {
     password: string;
 }
 
-const ModalSucess: React.FC<ModalProps> = (props) => {
+const ModalSuccess: React.FC<ModalProps> = (props) => {
+    //selector para pegar dados do usuário logado
     const user: User = useSelector((state: RootStateOrAny) => state.user.user);
 
     return (
@@ -74,4 +76,4 @@ const ModalSucess: React.FC<ModalProps> = (props) => {
     );
 }
 
-export default ModalSucess;
+export default ModalSuccess;

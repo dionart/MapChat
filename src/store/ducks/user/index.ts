@@ -2,6 +2,7 @@ import { Reducer } from 'redux';
 import { UserState, UserTypes } from './types';
 import {environment} from '../../../environment/environment';
 
+//pega o token e usupario encontrados no localstorage
 const token = localStorage.getItem(environment.REACT_APP_LOCAL_STORAGE_USER);
 const loggedUser: UserState = JSON.parse(localStorage.getItem("loggedUser") as any);
 
@@ -14,10 +15,10 @@ const INITIAL_STATE: UserState = {
   },
 };
 
+//se o token existir seta o usuário logado como estado inicial de usuário
 if (token) {
   INITIAL_STATE.user = loggedUser.user;
 }
-
 
 const reducer: Reducer<UserState> = (
   state = INITIAL_STATE,
@@ -47,7 +48,6 @@ const reducer: Reducer<UserState> = (
         email: '',
         name: '',
       }
-
 
       return { ...state, ...INITIAL_STATE };
 

@@ -1,10 +1,10 @@
 import React from 'react';
+//importações
 import './styles.scss';
 import image from '../../images/Dio.png';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
-// import { Container } from './styles';
 
 const Footer: React.FC = () => {
   return (
@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
             
             <div className="row mt-5">
                 <div className="col copyright">
-                <p className=""><small className="text-white-50">© 2020. All Rights Reserved.</small></p>
+                <p className=""><small className="text-white-50">© 2020. Todos direitos reservados.</small></p>
                 </div>
             </div>
         </div>

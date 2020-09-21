@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
-
+//importações
 import './styles.scss';
 import sent from '../../images/sent-message.svg';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-import ModalSucess from '../../components/ModalSucess';
+import ModalSuccess from '../ModalSuccess';
 import { useSnackbar } from 'notistack';
 
+//interface
 interface ModalProps {
     zone:number,
     id: number,
@@ -18,11 +19,15 @@ interface ModalProps {
 };
   
 const ModalMessage: React.FC<ModalProps> = (props) => {
+    //declarações de constantes
     const [message,setMessage] = useState('');
     const [showSucess, setShowSucess] = useState(false);
     const { enqueueSnackbar } = useSnackbar();
 
+    //handleClose para modal
     const handleClose = () =>{setShowSucess(false)};
+
+    //logica para não permitir mensagem em branco
     const handleSubmit = () => {
         if(message){
             setShowSucess(true);
@@ -76,7 +81,7 @@ const ModalMessage: React.FC<ModalProps> = (props) => {
                 
             </Modal>
 
-            <ModalSucess zone={props.zone} id={props.id} neighborhood={props.name} message={message} value={showSucess} handleClose={handleClose} />
+            <ModalSuccess zone={props.zone} id={props.id} neighborhood={props.name} message={message} value={showSucess} handleClose={handleClose} />
         
         </>
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, RootStateOrAny } from 'react-redux';
-
+//importações
 import './styles.scss';
 import { Map, TileLayer, Marker } from 'react-leaflet';
 import logo from '../../images/logo.png';
@@ -12,6 +12,7 @@ import ModalLogin from '../../components/Modal';
 import { useSnackbar } from 'notistack';
 import SearchIcon from '@material-ui/icons/Search';
 
+//interfaces
 interface Neighborhoods {
     zone: number;
     neighborhood: any;
@@ -32,7 +33,9 @@ interface User {
 }
   
 const SearchPage: React.FC = () => {
+    //selector para pegar informações do usuário logado
     const user: User = useSelector((state: RootStateOrAny) => state.user.user);
+    //declarações de constantes
     const [ModalChoice, setModalChoice] = useState(false);
     const [initialPosition, setInitialPosition] = useState<[number,number]>([0,0]);
     const [showMap, setShowMap] = useState(false);
@@ -45,6 +48,7 @@ const SearchPage: React.FC = () => {
     const { enqueueSnackbar } = useSnackbar();
     const data = dataJSON.neighborhoods;
 
+    //setar bairros de acordo com a área
     const searchZone = () => {
         data.map((item: Neighborhoods) => {
           if (item.zone === zone) {
@@ -56,10 +60,12 @@ const SearchPage: React.FC = () => {
         })
     }
     
+    //seta os bairros toda vez que uma zona for selecionada
     useEffect(()=>{
         searchZone();
     },[zone]);
 
+    //busca a posição do usuário
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(position => {
         const { latitude, longitude } = position.coords;
@@ -68,6 +74,7 @@ const SearchPage: React.FC = () => {
         });
     }, []);
 
+    //tratamento de login e set para modais
     const handleModalChoice = (neighborhood:string) =>{
         if(user.token !== ''){
             setModalChoice(true);
@@ -78,9 +85,11 @@ const SearchPage: React.FC = () => {
         }
     }
 
+    //handleClose para modais
     const handleClose = () =>{setModalChoice(false)};
     const handleLogin = () =>{setModalLogin(false)};
 
+    //logica para exibição do mapa e bairros da zona
     const handleSelect = () =>{
         setChoice('');
         setShowNeighborhoods(true);
