@@ -22,7 +22,7 @@
             p{
                 justify-self: flex-end;
                 font-size: 28px;
-                color:#777;
+                color:$grey;
                 font-weight: 600;
             }
             .satelite{
@@ -95,7 +95,6 @@
     }
     
 }
-
 
 @media screen and (max-width: 1454px) {
     #second-page{
