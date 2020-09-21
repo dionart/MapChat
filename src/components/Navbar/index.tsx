@@ -48,7 +48,7 @@ const Header: React.FC = () => {
         <div className="header-content">
             <Navbar bg="light" expand="lg">
                             
-                <Navbar.Brand href="#home">Home</Navbar.Brand>
+                <Navbar.Brand>Home</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">

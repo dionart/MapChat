@@ -33,9 +33,7 @@ const ModalLogin: React.FC<ModalProps> = (props) => {
                 token:'LoggedIn',
                 email:email,
                 name:'Dionízio',
-
             }
-            
             //checa se email e senha são validos
             const ValidEmail = checkAuth('email', email);
             const ValidPassword = checkAuth('password', password);
@@ -52,6 +50,7 @@ const ModalLogin: React.FC<ModalProps> = (props) => {
         }else{
             enqueueSnackbar('Falha ao autenticar, verifique as informações e tente novamente', { variant: "error" });
         }
+        
     }
         
 
@@ -69,7 +68,9 @@ const ModalLogin: React.FC<ModalProps> = (props) => {
                 </div>
 
                 <div className='form-container'>
-                    <Form>
+                    <Form
+                        onSubmit={(e)=> e.preventDefault()}
+                    >
                         <Form.Group controlId="formBasicEmail">
                             <Form.Control 
                                 value={email}
@@ -95,7 +96,8 @@ const ModalLogin: React.FC<ModalProps> = (props) => {
                         
                         
                         <div>
-                            <Button 
+                            <Button
+                                
                                 onClick= {()=> Login()}
                                 id="botao" 
                                 className="btn-sl" 

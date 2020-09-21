@@ -28,7 +28,7 @@ interface User {
 const ModalSuccess: React.FC<ModalProps> = (props) => {
     //selector para pegar dados do usuário logado
     const user: User = useSelector((state: RootStateOrAny) => state.user.user);
-
+    
     return (
         <Modal
             show={props.value}

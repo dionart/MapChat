@@ -23,14 +23,17 @@ const ModalMessage: React.FC<ModalProps> = (props) => {
     const [message,setMessage] = useState('');
     const [showSucess, setShowSucess] = useState(false);
     const { enqueueSnackbar } = useSnackbar();
+    const [messageAux, setMessageAux] = useState('');
 
     //handleClose para modal
     const handleClose = () =>{setShowSucess(false)};
 
     //logica para não permitir mensagem em branco
     const handleSubmit = () => {
-        if(message){
+        if(message !== ''){
             setShowSucess(true);
+            setMessageAux(message);
+            setMessage('');
             props.handleClose();
         }else{
             enqueueSnackbar('Sua avaliação não pode ser um campo em branco',{variant: 'error'});
@@ -65,7 +68,7 @@ const ModalMessage: React.FC<ModalProps> = (props) => {
 
                             <div className="form-control-container">
                                 <Form.Group controlId="exampleForm.ControlTextarea1">
-                                    <Form.Control className="text-area" as="textarea" rows={6} placeholder="Escreva aqui" onChange={(e) => {setMessage(e.target.value);console.log(message)}} />
+                                    <Form.Control className="text-area" as="textarea" rows={6} placeholder="Escreva aqui" value={message} onChange={(e) => {setMessage(e.target.value)}} />
                                 </Form.Group>
                             </div>
                         </Modal.Body>
@@ -81,7 +84,7 @@ const ModalMessage: React.FC<ModalProps> = (props) => {
                 
             </Modal>
 
-            <ModalSuccess zone={props.zone} id={props.id} neighborhood={props.name} message={message} value={showSucess} handleClose={handleClose} />
+            <ModalSuccess zone={props.zone} id={props.id} neighborhood={props.name} message={messageAux} value={showSucess} handleClose={handleClose} />
         
         </>
 

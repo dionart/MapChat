@@ -39,7 +39,7 @@ const reducer: Reducer<UserState> = (
       // localStorage.removeItem(
       //   environment.REACT_APP_LOCAL_STORAGE_USER_AUTH,
       // );
-      localStorage.removeItem("userLogin");
+      localStorage.removeItem("loggedUser");
       localStorage.removeItem(environment.REACT_APP_LOCAL_STORAGE_USER);
 
       INITIAL_STATE.user = {
