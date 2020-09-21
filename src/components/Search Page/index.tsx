@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSelector, RootStateOrAny } from 'react-redux';
 
 import './styles.scss';
 import { Map, TileLayer, Marker } from 'react-leaflet';
@@ -7,6 +8,7 @@ import dataJSON from '../../data/neighborhoods.json';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import ModalMessage from '../../components/ModalMessage';
+import ModalLogin from '../../components/Modal';
 import { useSnackbar } from 'notistack';
 import SearchIcon from '@material-ui/icons/Search';
 
@@ -20,8 +22,17 @@ interface Neighborhood {
     name: string;
     location: [number, number];
 }
+
+interface User {
+    id: string;
+    token: string;
+    name: string;
+    email: string;
+    password: string;
+}
   
 const SearchPage: React.FC = () => {
+    const user: User = useSelector((state: RootStateOrAny) => state.user.user);
     const [ModalChoice, setModalChoice] = useState(false);
     const [initialPosition, setInitialPosition] = useState<[number,number]>([0,0]);
     const [showMap, setShowMap] = useState(false);
@@ -30,6 +41,7 @@ const SearchPage: React.FC = () => {
     const [neighborhoodId, setNeighborhoodId] = useState(0);
     const [showNeighborhood, setShowNeighborhoods] = useState(false);
     const [choice, setChoice] = useState<string>('');
+    const [modalLogin, setModalLogin] = useState(false);
     const { enqueueSnackbar } = useSnackbar();
     const data = dataJSON.neighborhoods;
 
@@ -57,11 +69,17 @@ const SearchPage: React.FC = () => {
     }, []);
 
     const handleModalChoice = (neighborhood:string) =>{
-        setModalChoice(true);
-        setChoice(neighborhood);
+        if(user.token !== ''){
+            setModalChoice(true);
+            setChoice(neighborhood);
+        }else{
+            setModalLogin(true);
+            enqueueSnackbar('Você precisa estar logado para selecionar um bairro', {variant:'error'})
+        }
     }
 
-    const handleClose = () =>{setModalChoice(false)}
+    const handleClose = () =>{setModalChoice(false)};
+    const handleLogin = () =>{setModalLogin(false)};
 
     const handleSelect = () =>{
         setChoice('');
@@ -180,6 +198,7 @@ const SearchPage: React.FC = () => {
             }
         
             <ModalMessage zone={zone} id={neighborhoodId} name={choice} value={ModalChoice} handleClose={handleClose}/>
+            <ModalLogin value={modalLogin} handleClose={handleLogin}/>
         </div>
         
     );

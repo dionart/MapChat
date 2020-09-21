@@ -103,9 +103,13 @@
 
 @media screen and (max-width: 414px) {
     .image-modal{
+        display: none !important;
         img{
             padding-top: 100px !important;
         }
+    }
+    .input-modal{
+        width: 100% !important;
     }
     .send-container{
         padding-right:15px !important;
@@ -116,5 +120,32 @@
             width: 50% !important;
         }
     
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .modal-container{  
+        
+        .image-modal{
+            display: none !important;
+            img{
+                padding-top: 100px !important;
+            }
+        }
+
+        .input-modal{
+            width: 100% !important;
+        }
+
+        .send-container{
+            padding-right:15px !important;
+            padding-left:15px !important;
+            .goback-button{
+                margin-right: 35px !important;
+                
+                width: 50% !important;
+            }
+        
+        }
     }
 }

@@ -1,5 +1,9 @@
 import { Reducer } from 'redux';
 import { UserState, UserTypes } from './types';
+import {environment} from '../../../environment/environment';
+
+const token = localStorage.getItem(environment.REACT_APP_LOCAL_STORAGE_USER);
+const loggedUser: UserState = JSON.parse(localStorage.getItem("loggedUser") as any);
 
 const INITIAL_STATE: UserState = {
   user: {
@@ -10,6 +14,11 @@ const INITIAL_STATE: UserState = {
   },
 };
 
+if (token) {
+  INITIAL_STATE.user = loggedUser.user;
+}
+
+
 const reducer: Reducer<UserState> = (
   state = INITIAL_STATE,
   action,
@@ -18,18 +27,28 @@ const reducer: Reducer<UserState> = (
 
   switch (action.type) {
     case UserTypes.UPDATE_USER:
-      updatedUserState.user = action.data.user;
+      updatedUserState.user = action.payload.user;
       // localStorage.setItem(
       //   environment.REACT_APP_LOCAL_STORAGE_USER_AUTH,
       //   JSON.stringify(),
       // );
-
       return { ...state, ...updatedUserState };
 
     case UserTypes.REMOVE_USER:
       // localStorage.removeItem(
       //   environment.REACT_APP_LOCAL_STORAGE_USER_AUTH,
       // );
+      localStorage.removeItem("userLogin");
+      localStorage.removeItem(environment.REACT_APP_LOCAL_STORAGE_USER);
+
+      INITIAL_STATE.user = {
+        id: '',
+        token: '',
+        email: '',
+        name: '',
+      }
+
+
       return { ...state, ...INITIAL_STATE };
 
     default:

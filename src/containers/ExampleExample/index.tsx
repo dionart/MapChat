@@ -4,6 +4,7 @@ import './styles.scss';
 import About from '../../components/About';
 import SearchPage from '../../components/Search Page';
 import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 
 const ExampleExample: React.FC = () => {
   
@@ -12,6 +13,7 @@ const ExampleExample: React.FC = () => {
       <Navbar/>
       <SearchPage />
       <About/>
+      <Footer/>
     </div>
     
     );

@@ -26,7 +26,11 @@
             padding-right: 10px;
             .login-icon{
                 margin-top: 10px;
-                
+            }
+            .logout-icon{
+                margin-top: 10px;
+                -webkit-transform: scaleX(-1);
+                transform: scaleX(-1);
             }
         }
     }

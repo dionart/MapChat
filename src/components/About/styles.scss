@@ -10,8 +10,8 @@
         
         .description-container{
             width: 50%;
-            z-index: 2;
-            padding-top: 35px;
+           
+            padding: 70px 0 70px 120px;
             flex-direction: column;
             a{  
                 text-align: center;
@@ -26,26 +26,174 @@
                 font-weight: 600;
             }
             .satelite{
-                transform: rotate(-15deg);
+                -webkit-transform: scaleX(-1);
+                transform: scaleX(-1);
+                transform: rotate(110deg);
                 padding:150px 0;
                 width: 150px;
-                align-self: center;
+                align-self: flex-end;
 
             }
             .satelite2{
+                -webkit-transform: scaleX(-1);
+                transform: scaleX(-1);
+                transform: rotate(110deg);
+                align-self: center;
                 width: 150px;
             }
             
         }
         .image-container{
-            margin-left: 70px;
-            z-index: 1;
-            padding:170px 0;
+           
+            padding:90px 0;
             img{
-               width: 100%;
+                -webkit-transform: scaleX(-1);
+                transform: scaleX(-1);
+                width: 900px;
             }
             
         }
     }
 }
 
+@media screen and (max-width: 1425px) {
+    #second-page{
+        
+        .description-container{
+            a{
+                font-size: 50px !important;
+            }
+            p{
+                font-size: 25px !important;
+            }
+            .satelite{
+                margin-top: -60px !important;
+                padding-top: 90px !important;
+                
+            }
+            
+        }
+        .image-container{
+            width: 50% !important;   
+        }
+    }
+    
+}
+
+@media screen and (max-width: 1010px) {
+    #second-page{
+        div{
+            flex-direction: column !important;
+            .description-container{
+                padding:70px !important;
+                width: 100% !important;
+                a{
+                    font-size: 45px !important;
+                }
+                p{
+                    font-size: 23px !important;
+                }
+                .satelite{
+                    display: none !important;
+                }
+                .satelite2{
+                    display: none !important;
+                }
+            }
+            .image-container{
+                padding: 0 !important;
+                width: 100% !important;
+                img{
+                    width: 70% !important;
+                }     
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 430px) {
+    #second-page{
+        div{
+            flex-direction: column !important;
+            .description-container{
+                padding:30px !important;
+                width: 100% !important;
+                a{
+                    font-size: 30px !important;
+                }
+                p{
+                    font-size: 19px !important;
+                }
+                .satelite{
+                    display: none !important;
+                }
+                .satelite2{
+                    display: none !important;
+                }
+            }
+            .image-container{
+                padding: 0 !important;
+                width: 100% !important;     
+                img{
+                    width: 100% !important;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 380px) {
+    #second-page{
+        div{
+            flex-direction: column !important;
+            .description-container{
+                padding:40px !important;
+                width: 100% !important;
+                a{
+                    font-size: 30px !important;
+                }
+                p{
+                    font-size: 19px !important;
+                }
+                .satelite{
+                    display: none !important;
+                }
+                .satelite2{
+                    display: none !important;
+                }
+            }
+            .image-container{
+                padding: 0 !important;
+                width: 100% !important;     
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 323px) {
+    #second-page{
+        div{
+            flex-direction: column !important;
+            .description-container{
+                width: 100% !important;
+                a{
+                    font-size: 28px !important;
+                }
+                p{
+                    font-size: 16px !important;
+                }
+                .satelite{
+                    display: none !important;
+                }
+                .satelite2{
+                    display: none !important;
+                }
+            }
+            .image-container{
+                padding: 0 !important;
+                width: 100% !important;     
+            }
+        }
+    }
+}

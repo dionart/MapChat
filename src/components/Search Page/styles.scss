@@ -215,9 +215,12 @@
         width: 300px !important;
         height:200px !important;
         max-width: 100% !important;
+        max-height: 150px !important;
+        overflow: auto !important;
         .botao-neighborhoods{
+            font-size: 0.9rem !important;
             margin-top: 0 !important;
-            margin-bottom: 0 !important;
+            margin-bottom: 5px !important;
             width:140px !important;
             height:30px !important;
         }
@@ -251,7 +254,6 @@
         max-width: 100% !important;
         .botao-neighborhoods{
             margin-top: 0 !important;
-            margin-bottom: 0 !important;
             width:140px !important;
             height:30px !important;
         }
@@ -265,7 +267,7 @@
             font-size: 30px !important;
         }
         img{
-            width: 45px !important;
+            width: 35px !important;
         }
     }
     a{   
@@ -275,8 +277,8 @@
         width: 190px !important;
     }
     .leaflet-container{
-        width:300px !important;
-        height:190px !important;
+        width:270px !important;
+        height:160px !important;
     }
     .neighborhoods{
         width: 300px !important;
@@ -285,7 +287,6 @@
         .botao-neighborhoods{
             padding:0 !important;
             margin-top: 0 !important;
-            margin-bottom: 0 !important;
             width:110px !important;
             height:25px !important;
         }

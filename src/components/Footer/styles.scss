@@ -1,0 +1,60 @@
+@import '../../mixin.scss';
+
+.footer{
+    background: #152F4F;
+    scroll-snap-align: start;
+    color:white;
+    padding: 3rem 0 3rem 0;
+    height: 40vh;
+    
+    .row{
+        .my-name{
+            
+            width: 100%;
+            flex-wrap: nowrap;
+            max-width: 300px;
+        }
+        .my-image{
+            margin-left: 20px;
+            align-self: center;
+            width: 12%;
+            img{
+                border-radius: 150px;
+                width: 100%;
+            }
+        }
+        .infos{
+            padding-left: 100px;
+        }
+        div{
+            padding-left: 15px;
+        }
+        
+        .end{
+           padding-left: 150px;
+        }
+    }
+    .copyright p{border-top:1px solid rgba(255,255,255,.1);} 
+}
+
+
+@media screen and (max-width: 416px) {
+    
+    .footer{
+        height: 100vh !important;
+        width: 100% !important;
+            .row{
+                .my-image{
+                    width: 20% !important;
+                }
+
+                .infos{
+                    padding-left: 17px !important;
+                }
+                .end{
+                    padding-left: 30px !important;
+                }                
+        }
+    }
+    
+}
